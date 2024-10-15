@@ -1,0 +1,23 @@
+# html_string = render_to_string('template.html')
+
+
+# Create a Document object
+# document = Document()
+# Add a section to the document
+section = document.AddSection()
+
+# Set the page margins to 72 points (72 points = 1 inch)
+section.PageSetup.Margins.All = 72
+
+# Add a paragraph to the section
+paragraph = section.AddParagraph()
+
+# Add the HTML string to the paragraph
+paragraph.AppendHTML(html_string)
+
+# Save the result document to a DOCX file
+document.SaveToFile("HtmlStringToDocx.docx", FileFormat.Docx2016)
+# Or save the result document to a DOC file
+# document.SaveToFile("HtmlStringToDoc.doc", FileFormat.Doc)
+
+document.Close()

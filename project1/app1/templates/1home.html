@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-group button {
+            flex: 1;
+            margin: 0 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Document Generation</h1>
+        <form method="POST" action="generate_doc">
+            {% csrf_token %}
+            <div>
+                <label for="name">Company Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter company name" required>
+            </div>
+            <div class="btn-group">
+                <button type="submit" name="generate" value="vmp">Generate VMP</button>
+                <button type="submit" name="generate" value="dq">Generate DQ</button>
+                <button type="submit" name="generate" value="urs">Generate URS</button>
+            </div>
+        </form>
+    </div>
+    
+    
+</body>
+</html>
